@@ -154,16 +154,27 @@ export function Portfolio() {
 
       <main>
         <section id="home" className="hero">
+          <div className="hero-aurora" aria-hidden="true"><span className="aurora-one" /><span className="aurora-two" /></div>
           <div className="hero-code code-a" aria-hidden="true">{"<div>"}</div>
           <div className="hero-code code-b" aria-hidden="true">{"{ }"}</div>
           <div className="hero-copy reveal is-visible">
-            <div className="availability"><span /> Available for opportunities</div>
+            <div className="availability"><span className="beacon" /> Available for internships &amp; roles</div>
             <p className="intro">Hello, I’m Adeniyi Adewale</p>
             <h1>Building digital<br />experiences that <em>work.</em></h1>
             <p className="hero-text">I’m a Frontend Developer passionate about turning ideas and designs into fast, responsive, and user-friendly web applications using modern web technologies.</p>
+            <div className="stack-ribbon">
+              <span>React.js</span><i />
+              <span>JavaScript</span><i />
+              <span>Modern UI</span>
+            </div>
             <div className="hero-actions">
-              <a className="button button-primary" href="#projects">View my projects <ArrowDownRight size={18} /></a>
-              <a className="button button-secondary" href="#contact">Let’s work together</a>
+              <a className="button button-primary" href="#projects">Explore projects <ArrowDownRight size={18} /></a>
+              <a className="button button-secondary" href="#contact">Get in touch</a>
+            </div>
+            <div className="hero-stats">
+              <div><strong>Frontend</strong><span>React specialist</span></div>
+              <div><strong>100%</strong><span>Responsive focus</span></div>
+              <div><strong>Clean</strong><span>Component architecture</span></div>
             </div>
             <div className="social-row">
               <span>Find me online</span><i />
@@ -176,6 +187,7 @@ export function Portfolio() {
             <div className="portrait-frame"><img src={portrait} alt="Professional portrait representing Adeniyi Adewale" width={1024} height={1280} /></div>
             <div className="floating-chip chip-react"><span>R</span> React.js</div>
             <div className="floating-chip chip-location"><MapPin size={15} /> Ikeja, Lagos</div>
+            <div className="floating-chip chip-code"><code>{"<Portfolio />"}</code></div>
             <div className="experience-note"><strong>Frontend</strong><span>Developer</span></div>
           </div>
           <div className="scroll-cue"><span>Scroll to explore</span><i /></div>
