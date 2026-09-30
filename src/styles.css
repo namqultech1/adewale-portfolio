@@ -90,10 +90,15 @@ a { color: inherit; text-decoration: none; }
 .button-primary:hover { background:var(--accent); }
 .button-secondary { border-color:var(--border); background:var(--secondary); }
 .button-secondary:hover { border-color:var(--primary); }
+.hero-actions .button { border-radius:999px; padding:0 26px; }
+.hero-actions .button-primary { box-shadow:0 14px 34px color-mix(in oklab,var(--primary) 30%,transparent); }
+.hero-actions .button-primary svg { transition:transform .25s ease; }
+.hero-actions .button-primary:hover svg { transform:translate(3px,3px); }
+.hero-actions .button-secondary { background:color-mix(in oklab,var(--card) 60%,transparent); backdrop-filter:blur(12px); }
 .social-row { display:flex; align-items:center; gap:13px; margin-top:44px; color:var(--muted-foreground); font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
 .social-row i { width:45px; height:1px; background:var(--border); }
-.social-row a { display:grid; place-items:center; width:34px; height:34px; border:1px solid var(--border); transition:.2s; }
-.social-row a:hover { color:var(--primary); border-color:var(--primary); }
+.social-row a { display:grid; place-items:center; width:36px; height:36px; border-radius:50%; border:1px solid var(--border); background:color-mix(in oklab,var(--card) 60%,transparent); transition:.2s; }
+.social-row a:hover { color:var(--primary); border-color:var(--primary); box-shadow:0 0 18px color-mix(in oklab,var(--primary) 30%,transparent); transform:translateY(-2px); }
 .hero-visual { height:min(72vh,700px); min-height:500px; display:grid; place-items:end center; }
 .portrait-frame { position:relative; z-index:2; width:min(100%,520px); height:100%; overflow:hidden; border:1px solid color-mix(in oklab,var(--primary) 22%,var(--border)); border-radius:26px; background:var(--card); box-shadow:var(--shadow-glow),0 40px 90px oklch(0 0 0/.35); }
 .portrait-frame::after { content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(to top,var(--background),transparent 34%),linear-gradient(120deg,color-mix(in oklab,var(--primary) 16%,transparent),transparent 45%); }
