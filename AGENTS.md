@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the portfolio as a component-led single-page experience with anchored sections; this preserves the explicitly requested smooth-scroll navigation model.
