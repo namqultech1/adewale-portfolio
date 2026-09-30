@@ -146,6 +146,66 @@ footer{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:25
 @keyframes beacon{0%{transform:scale(.7);opacity:.8}100%{transform:scale(1.7);opacity:0}}
 @keyframes drift{50%{transform:translate3d(4%,-5%,0) scale(1.12)}}
 
+/* ---- modern section polish ---- */
+.section-heading .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid var(--line-soft);background:color-mix(in oklab,var(--card) 70%,transparent);backdrop-filter:blur(12px);color:var(--primary);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+
+/* About */
+.about-copy{position:relative;padding-left:26px}
+.about-copy::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px;background:linear-gradient(to bottom,var(--primary),transparent)}
+.education-card{border-radius:22px;border-color:var(--line-soft);background:linear-gradient(150deg,color-mix(in oklab,var(--primary) 8%,var(--card)),var(--card));backdrop-filter:blur(14px);box-shadow:0 24px 60px oklch(0 0 0/.25);transition:transform .3s,box-shadow .3s}
+.education-card:hover{transform:translateY(-5px);box-shadow:0 30px 70px oklch(0 0 0/.35)}
+.education-card>svg{padding:8px;width:42px;height:42px;border-radius:12px;border:1px solid var(--line-soft);background:var(--accent-soft)}
+.strength-list{margin-top:14px;border:0;gap:10px}
+.strength-list span{border:1px solid var(--line-soft);border-radius:999px;background:color-mix(in oklab,var(--card) 75%,transparent);padding:11px 15px;transition:border-color .25s,color .25s,transform .25s}
+.strength-list span:hover{border-color:var(--primary);color:var(--foreground);transform:translateY(-2px)}
+
+/* Skills */
+.skill-card{position:relative;border:1px solid var(--line-soft);border-radius:24px;background:linear-gradient(170deg,color-mix(in oklab,var(--primary) 5%,var(--card)),var(--card));overflow:hidden}
+.skill-card::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--primary),transparent);opacity:0;transition:opacity .3s}
+.skill-card:hover::before{opacity:1}
+.skill-card:hover{box-shadow:0 26px 60px oklch(0 0 0/.3)}
+.card-top svg{padding:8px;width:40px;height:40px;border-radius:12px;border:1px solid var(--line-soft);background:var(--accent-soft)}
+.skill-tags span,.tech-list span{border-radius:999px;border-color:var(--line-soft);background:color-mix(in oklab,var(--card) 70%,transparent);padding:8px 13px;transition:border-color .25s,color .25s}
+.skill-tags span:hover,.tech-list span:hover{border-color:var(--primary);color:var(--primary)}
+
+/* Services */
+.services-list{border-top:0;display:grid;gap:14px}
+.service-row{border-bottom:0;border:1px solid var(--line-soft);border-radius:20px;padding:26px 24px;background:color-mix(in oklab,var(--card) 60%,transparent);backdrop-filter:blur(10px);transition:transform .3s,border-color .3s,box-shadow .3s}
+.service-row:hover{padding:26px 24px;transform:translateY(-4px);border-color:color-mix(in oklab,var(--primary) 45%,var(--line-soft));background:var(--card);box-shadow:0 24px 55px oklch(0 0 0/.3)}
+.service-icon{border-radius:14px;border-color:var(--line-soft);background:var(--accent-soft);transition:transform .3s}
+.service-row:hover .service-icon{transform:scale(1.06)}
+.service-arrow{transition:transform .3s}
+.service-row:hover .service-arrow{transform:translate(4px,4px)}
+
+/* Projects */
+.project-preview{border-radius:20px;border-color:var(--line-soft);box-shadow:0 36px 80px oklch(0 0 0/.35);transition:transform .35s,box-shadow .35s}
+.project-card:hover .project-preview{transform:translateY(-6px);box-shadow:0 44px 95px oklch(0 0 0/.45)}
+.browser-bar i:nth-child(1){background:oklch(.7 .16 25)}.browser-bar i:nth-child(2){background:oklch(.8 .14 85)}.browser-bar i:nth-child(3){background:oklch(.76 .15 150)}
+.project-links a{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;border:1px solid var(--line-soft);background:color-mix(in oklab,var(--card) 70%,transparent);transition:border-color .25s,transform .25s,color .25s}
+.project-links a:first-child{border-color:color-mix(in oklab,var(--primary) 55%,transparent);color:var(--primary)}
+.project-links a:hover{transform:translateY(-2px);border-color:var(--primary);color:var(--primary)}
+
+/* Experience */
+.job-heading svg{padding:10px;width:46px;height:46px;border-radius:14px;border:1px solid var(--line-soft);background:var(--accent-soft)}
+.job-details li{padding:10px 14px;border-radius:999px;border:1px solid var(--line-soft);background:color-mix(in oklab,var(--card) 55%,transparent)}
+.transferable b{border-radius:999px;padding:9px 15px;border:1px solid color-mix(in oklab,var(--primary) 35%,transparent)}
+.journey-track{position:relative}
+.journey-track::before{content:"";position:absolute;top:26px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,color-mix(in oklab,var(--primary) 55%,transparent),transparent)}
+.journey-step i{position:relative;z-index:1;background:linear-gradient(150deg,var(--accent-soft),var(--background));box-shadow:0 0 0 6px var(--background),0 10px 30px oklch(0 0 0/.3);transition:transform .3s,box-shadow .3s}
+.journey-step:hover i{transform:translateY(-4px);box-shadow:0 0 0 6px var(--background),var(--shadow-glow)}
+
+/* Contact */
+.contact-details a,.contact-details>div{padding:16px 18px;border-radius:16px;border:1px solid var(--line-soft);background:color-mix(in oklab,var(--card) 55%,transparent);backdrop-filter:blur(10px);transition:border-color .25s,transform .25s}
+.contact-details a:hover{border-color:var(--primary);transform:translateY(-3px)}
+.contact-details svg{flex:none;padding:7px;box-sizing:content-box;width:20px;height:20px;border-radius:10px;background:var(--accent-soft)}
+.contact-form{border-radius:26px;border-color:var(--line-soft);background:linear-gradient(160deg,color-mix(in oklab,var(--primary) 6%,var(--card)),var(--card));backdrop-filter:blur(14px);box-shadow:0 30px 80px oklch(0 0 0/.3)}
+.contact-form input,.contact-form textarea{border-radius:14px;border-color:var(--line-soft);transition:border-color .25s,box-shadow .25s}
+.contact-form input:focus,.contact-form textarea:focus{box-shadow:0 0 0 4px var(--accent-soft)}
+.contact-form button{justify-content:center}
+footer>div a{border-radius:50%;border-color:var(--line-soft);transition:transform .25s,border-color .25s,box-shadow .25s}
+footer>div a:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:var(--shadow-glow)}
+@media(max-width:700px){.journey-track::before{display:none}.about-copy{padding-left:18px}}
+
 @media(max-width:980px){.navbar{grid-template-columns:1fr auto}.desktop-nav,.nav-cta{display:none}.menu-toggle{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--border);background:var(--card);color:var(--foreground)}.mobile-nav{position:absolute;display:grid;top:76px;left:0;right:0;padding:18px clamp(20px,5vw,50px);border-bottom:1px solid var(--border);background:var(--deep)}.mobile-nav a{display:flex;align-items:center;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--border)}.hero{grid-template-columns:1fr .85fr;padding-inline:40px}.hero h1{font-size:clamp(46px,7vw,68px)}.heading-row{grid-template-columns:1fr;gap:25px}.skills-grid{grid-template-columns:1fr 1fr}.skill-card:first-child{grid-column:1/-1}.service-row{grid-template-columns:35px 50px 1fr 30px}.service-row p{grid-column:3/5;margin-top:-12px}.project-card{grid-template-columns:1fr;gap:42px}.project-card:nth-child(even) .project-visual,.project-card:nth-child(even) .project-copy{order:initial}.contact-section{grid-template-columns:1fr}.contact-form{max-width:700px;width:100%}footer{grid-template-columns:1fr auto}footer p{display:none}}
 @media(max-width:700px){.navbar{height:68px;padding-inline:20px}.mobile-nav{top:68px}.hero{min-height:auto;max-height:none;grid-template-columns:1fr;padding:110px 20px 70px}.hero-copy{order:1}.hero-visual{order:2;height:480px;min-height:0;margin-top:30px}.hero h1{font-size:clamp(43px,13vw,62px)}.hero-text{font-size:16px}.hero-actions{display:grid}.button{width:100%}.chip-react{left:-2%}.chip-location{right:-1%}.chip-code{display:none}.hero-stats{gap:10px}.hero-stats>div{flex:1 1 44%;padding:12px 14px}.scroll-cue,.hero-code{display:none}.section,.contact-section{padding:85px 20px}.heading-row h2,.contact-intro h2{font-size:clamp(36px,11vw,52px)}.about-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr}.skill-card:first-child{grid-column:auto}.skill-card{min-height:340px}.service-row{grid-template-columns:32px 46px 1fr;gap:15px}.service-row h3{font-size:18px}.service-row p{grid-column:2/4;margin:0}.service-arrow{display:none}.project-card{gap:36px}.projects-list{gap:95px}.project-preview{aspect-ratio:1.15}.project-copy h3{font-size:32px}.experience-grid{grid-template-columns:1fr}.job-heading{padding:35px 0;border-right:0;border-bottom:1px solid var(--border)}.job-heading svg{margin-top:35px}.job-details{padding:35px 0}.job-details ul{grid-template-columns:1fr}.journey{padding-top:75px}.journey-track{grid-template-columns:1fr;gap:15px}.journey-step{grid-template-columns:50px 1fr;text-align:left;align-items:center;justify-items:start}.journey-step svg{position:static;transform:rotate(90deg);grid-column:1;justify-self:center}.journey-step i{width:44px;height:44px}.field-row{grid-template-columns:1fr}.contact-form{padding:24px 18px}.contact-details a,.contact-details>div{align-items:flex-start;overflow-wrap:anywhere}footer{grid-template-columns:1fr;justify-items:center}footer>div{justify-self:center}.strength-list{grid-template-columns:1fr}.preview-interfaces .browser-bar{height:10%}.ui-grid{grid-template-columns:1fr 1fr;height:90%}.ui-grid>div:first-child{grid-column:1/-1;grid-row:auto}.shop-grid{grid-template-columns:.8fr 1.2fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.hero-code,.floating-chip,.hero-aurora span,.availability .beacon::after{animation:none}.button,.skill-card,.service-row{transition:none}}
