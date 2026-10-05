@@ -23,7 +23,9 @@ import {
   X,
 } from "lucide-react";
 
-import portrait from "@/assets/adeniyi-portrait.jpg";
+import portraitAsset from "@/assets/adeniyi-portrait.jpg.asset.json";
+
+const portrait = portraitAsset.url;
 
 const navItems = ["Home", "About", "Skills", "Services", "Projects", "Experience", "Contact"];
 
@@ -184,7 +186,7 @@ export function Portfolio() {
           </div>
           <div className="hero-visual reveal is-visible">
             <div className="portrait-ring" />
-            <div className="portrait-frame"><img src={portrait} alt="Professional portrait representing Adeniyi Adewale" width={1024} height={1280} /></div>
+            <div className="portrait-frame"><img src={portrait} alt="Adeniyi Adewale" width={900} height={1120} /></div>
             <div className="floating-chip chip-react"><span>R</span> React.js</div>
             <div className="floating-chip chip-location"><MapPin size={15} /> Ikeja, Lagos</div>
             <div className="floating-chip chip-code"><code>{"<Portfolio />"}</code></div>
