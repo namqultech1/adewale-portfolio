@@ -121,8 +121,13 @@ function ProjectPreview({ type }: { type: string }) {
   );
 }
 
+const EMAILJS_SERVICE_ID = "service_gpgs0ak";
+const EMAILJS_TEMPLATE_ID = "template_9asa9xn";
+const EMAILJS_PUBLIC_KEY = "ZxnNYWYuiUAcjSdxo";
+
 export function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
