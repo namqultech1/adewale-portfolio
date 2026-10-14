@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -120,8 +121,13 @@ function ProjectPreview({ type }: { type: string }) {
   );
 }
 
+const EMAILJS_SERVICE_ID = "service_gpgs0ak";
+const EMAILJS_TEMPLATE_ID = "template_9asa9xn";
+const EMAILJS_PUBLIC_KEY = "ZxnNYWYuiUAcjSdxo";
+
 export function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -132,12 +138,28 @@ export function Portfolio() {
     return () => observer.disconnect();
   }, []);
 
-  const submitContact = (event: FormEvent<HTMLFormElement>) => {
+  const submitContact = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const subject = encodeURIComponent(String(data.get("subject") ?? "Portfolio enquiry"));
-    const body = encodeURIComponent(`Hi Adeniyi,\n\n${String(data.get("message") ?? "")}\n\nFrom: ${String(data.get("name") ?? "")} (${String(data.get("email") ?? "")})`);
-    window.location.href = `mailto:Adewale_adeniyi20@yahoo.com?subject=${subject}&body=${body}`;
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    setFormStatus("sending");
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: String(data.get("name") ?? ""),
+          email: String(data.get("email") ?? ""),
+          subject: String(data.get("subject") ?? ""),
+          message: String(data.get("message") ?? ""),
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      );
+      setFormStatus("sent");
+      form.reset();
+    } catch {
+      setFormStatus("error");
+    }
   };
 
   return (
@@ -264,7 +286,7 @@ export function Portfolio() {
 
         <section id="contact" className="contact-section">
           <div className="contact-intro reveal"><span className="eyebrow"><span>//</span> Contact</span><h2>Let’s build something<br /><em>great together.</em></h2><p>I’m open to frontend opportunities, internships, collaborations, and projects where I can contribute, learn, and grow.</p><div className="contact-details"><a href="mailto:Adewale_adeniyi20@yahoo.com"><Mail /> <span><small>Email</small>Adewale_adeniyi20@yahoo.com</span></a><a href="tel:+2348166519439"><Phone /> <span><small>Phone</small>0816 651 9439</span></a><div><MapPin /><span><small>Location</small>Ikeja, Lagos, Nigeria</span></div></div></div>
-          <form className="contact-form reveal" onSubmit={submitContact}><div className="field-row"><label>Name<input name="name" placeholder="Your name" required /></label><label>Email<input name="email" type="email" placeholder="you@email.com" required /></label></div><label>Subject<input name="subject" placeholder="What would you like to discuss?" required /></label><label>Message<textarea name="message" rows={5} placeholder="Tell me a little about your project or opportunity…" required /></label><button type="submit" className="button button-primary">Send message <Send size={17} /></button><small>This opens your default email app.</small></form>
+          <form className="contact-form reveal" onSubmit={submitContact}><div className="field-row"><label>Name<input name="name" placeholder="Your name" required /></label><label>Email<input name="email" type="email" placeholder="you@email.com" required /></label></div><label>Subject<input name="subject" placeholder="What would you like to discuss?" required /></label><label>Message<textarea name="message" rows={5} placeholder="Tell me a little about your project or opportunity…" required /></label><button type="submit" className="button button-primary" disabled={formStatus === "sending"}>{formStatus === "sending" ? "Sending…" : "Send message"} <Send size={17} /></button>{formStatus === "sent" && <small className="form-note form-success">Message sent — thank you! I'll get back to you soon.</small>}{formStatus === "error" && <small className="form-note form-error">Something went wrong. Please try again or email me directly.</small>}{formStatus !== "sent" && formStatus !== "error" && <small>Delivered straight to my inbox.</small>}</form>
         </section>
       </main>
 
