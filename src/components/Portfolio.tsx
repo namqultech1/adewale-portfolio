@@ -138,12 +138,28 @@ export function Portfolio() {
     return () => observer.disconnect();
   }, []);
 
-  const submitContact = (event: FormEvent<HTMLFormElement>) => {
+  const submitContact = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const subject = encodeURIComponent(String(data.get("subject") ?? "Portfolio enquiry"));
-    const body = encodeURIComponent(`Hi Adeniyi,\n\n${String(data.get("message") ?? "")}\n\nFrom: ${String(data.get("name") ?? "")} (${String(data.get("email") ?? "")})`);
-    window.location.href = `mailto:Adewale_adeniyi20@yahoo.com?subject=${subject}&body=${body}`;
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    setFormStatus("sending");
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: String(data.get("name") ?? ""),
+          email: String(data.get("email") ?? ""),
+          subject: String(data.get("subject") ?? ""),
+          message: String(data.get("message") ?? ""),
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      );
+      setFormStatus("sent");
+      form.reset();
+    } catch {
+      setFormStatus("error");
+    }
   };
 
   return (
