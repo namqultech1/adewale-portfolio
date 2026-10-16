@@ -67,6 +67,8 @@ const projects = [
     role: "Frontend Developer / Product Cart Page",
     tech: ["React.js", "JavaScript", "HTML", "CSS", "Git"],
     preview: "commerce",
+    demo: "https://awwja.netlify.app",
+    code: "https://github.com/AtiyyatuNur/websitetesting",
   },
   {
     number: "02",
@@ -76,6 +78,8 @@ const projects = [
     role: "Design & Frontend Development",
     tech: ["React.js", "JavaScript", "CSS3", "Framer Motion"],
     preview: "portfolio",
+    demo: "#contact",
+    code: "https://github.com/namqultech",
   },
   {
     number: "03",
@@ -85,6 +89,8 @@ const projects = [
     role: "Frontend Developer",
     tech: ["React.js", "JavaScript", "CSS3"],
     preview: "recipe",
+    demo: "#contact",
+    code: "https://github.com/namqultech",
   },
   {
     number: "04",
@@ -94,6 +100,8 @@ const projects = [
     role: "UI Developer",
     tech: ["HTML5", "CSS3", "JavaScript"],
     preview: "interfaces",
+    demo: "#contact",
+    code: "https://github.com/namqultech",
   },
 ];
 
@@ -266,7 +274,7 @@ export function Portfolio() {
           <div className="projects-list">
             {projects.map((project, index) => <article className="project-card reveal" key={project.name}>
               <div className="project-visual"><ProjectPreview type={project.preview} /><span className="project-index">{project.number} / 04</span></div>
-              <div className="project-copy"><span className="project-label">{project.label}</span><h3>{project.name}</h3><p>{project.description}</p><div className="role"><b>Role</b><span>{project.role}</span></div><div className="tech-list">{project.tech.map((tech) => <span key={tech}>{tech}</span>)}</div><div className="project-links"><a href="#contact">Live demo <ExternalLink size={16} /></a><a href="https://github.com/namqultech" target="_blank" rel="noreferrer">View code <Github size={16} /></a></div></div>
+              <div className="project-copy"><span className="project-label">{project.label}</span><h3>{project.name}</h3><p>{project.description}</p><div className="role"><b>Role</b><span>{project.role}</span></div><div className="tech-list">{project.tech.map((tech) => <span key={tech}>{tech}</span>)}</div><div className="project-links"><a href={project.demo} target={project.demo.startsWith("http") ? "_blank" : undefined} rel="noreferrer">Live demo <ExternalLink size={16} /></a><a href={project.code} target="_blank" rel="noreferrer">View code <Github size={16} /></a></div></div>
             </article>)}
           </div>
         </section>
