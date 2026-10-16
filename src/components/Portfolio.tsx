@@ -148,9 +148,10 @@ export function Portfolio() {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
-          name: String(data.get("name") ?? ""),
-          email: String(data.get("email") ?? ""),
-          subject: String(data.get("subject") ?? ""),
+          to_name: "Adewale",
+          from_name: String(data.get("name") ?? ""),
+          from_email: String(data.get("email") ?? ""),
+          title: String(data.get("subject") ?? ""),
           message: String(data.get("message") ?? ""),
         },
         { publicKey: EMAILJS_PUBLIC_KEY },
