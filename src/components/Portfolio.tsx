@@ -78,8 +78,8 @@ const projects = [
     role: "Design & Frontend Development",
     tech: ["React.js", "JavaScript", "CSS3", "Framer Motion"],
     preview: "portfolio",
-    demo: "#contact",
-    code: "https://github.com/namqultech",
+    demo: "https://adewale-portfolio.lovable.app",
+    code: "https://github.com/namqultech1/adewale-portfolio",
   },
   {
     number: "03",
